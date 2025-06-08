@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import './App.css'
