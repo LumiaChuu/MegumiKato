@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import './App.css'
 
@@ -66,56 +65,59 @@ function App() {
     setQuoteIdx((prev) => (prev + 1) % quotes.length)
   }
 
-const galleryImages = [
-  { src: "/casual.jpeg", alt: "Megumi in casual wear" },
-  { src: "/elegant.jpeg", alt: "Megumi in elegant dress" },
-  { src: "/signature.jpeg", alt: "Megumi's signature pose" },
-];
+  const galleryImages = [
+    { src: "/casual.jpeg", alt: "Megumi in casual wear" },
+    { src: "/elegant.jpeg", alt: "Megumi in elegant dress" },
+    { src: "/signature.jpeg", alt: "Megumi's signature pose" },
+  ];
 
   return (
     <>
       <Navbar />
       <div className="megumi-container">
-      <header id="home" className="megumi-header">
-        <img
-          src="/katomegumi.jpeg"
-          alt="Megumi Kato"
-          className="megumi-img"
-        />
-        <h1>Megumi Kato</h1>
-        <h2>from Saekano: How to Raise a Boring Girlfriend</h2>
-        <p className="dev-credit">Web developed by LumiaChuu</p>
-      </header>
-      <main ref={bioRef} id="bio" className="megumi-bio">
-        <h3>Biography</h3>
-        <p>
-          Megumi Kato is the primary heroine of the popular anime and light novel series, "Saekano: How to Raise a Boring Girlfriend" (Saenai Heroine no Sodatekata). Initially portrayed as an 'ordinary' high school student, Megumi possesses a remarkably calm and often unnoticed presence. This very characteristic, however, becomes the central inspiration for Tomoya Aki, the protagonist, who aims to develop her into the main heroine of his visual novel game.
-        </p>
-        <p>
-          Despite her seemingly plain demeanor, Megumi is observant, surprisingly insightful, and possesses a dry wit that often catches others off guard. She is not prone to dramatic emotional displays, which contrasts sharply with the other heroines in the series. Her development throughout the story showcases her growing confidence and her subtle but significant impact on those around her. She learns to express herself more, becoming an indispensable part of the Blessing Software game development circle. Her ability to remain grounded and offer practical perspectives makes her a unique and deeply cherished character by fans for her realistic and relatable portrayal.
-        </p>
-        <h4>Character Details:</h4>
-        <ul>
-          <li><strong>Full Name:</strong> Megumi Kato (加藤 恵)</li>
-          <li><strong>Birthday:</strong> September 23</li>
-          <li><strong>Zodiac Sign:</strong> Libra</li>
-          <li><strong>Height:</strong> 160 cm (5'3")</li>
-          <li><strong>Weight:</strong> Secret</li>
-          <li><strong>Blood Type:</strong> O</li>
-          <li><strong>School:</strong> Toyogasaki Academy</li>
-          <li><strong>Class:</strong> 2-B (initially), later 3-A</li>
-          <li><strong>Hobbies:</strong> Playing video games (though she doesn't show it much), observing people.</li>
-          <li><strong>Signature Trait:</strong> Her ability to be 'stealthy' or unnoticeable, often referred to as her 'Stealth Mode'.</li>
-          <li><strong>Voice Actor (Japanese):</strong> Kiyono Yasuno (安野希世乃)</li>
-          <li><strong>Voice Actor (English):</strong> Katelyn Gault</li>
-        </ul>
-        <h4>Key Aspects:</h4>
-        <ul>
-            <li><strong>The "Boring" Heroine:</strong> Her initial label, which she gradually and charmingly subverts.</li>
-            <li><strong>Emotional Anchor:</strong> Often acts as the calm center in the chaotic group dynamics.</li>
-            <li><strong>Character Growth:</strong> Shows significant personal development, becoming more assertive and emotionally expressive.</li>
-            <li><strong>Relationship with Tomoya:</strong> Her evolving bond with Tomoya is a central theme, moving from a classmate to a muse, and then to something more profound.</li>
-        </ul>
+        <header id="home" className="megumi-header">
+          <img
+            src="/katomegumi.jpeg"
+            alt="Megumi Kato"
+            className="megumi-img"
+          />
+          <h1>Megumi Kato</h1>
+          <h2>from Saekano: How to Raise a Boring Girlfriend</h2>
+          <p className="dev-credit">Web developed by LumiaChuu</p>
+        </header>
+        
+        <main ref={bioRef} id="bio" className="megumi-bio">
+          <h3>Biography</h3>
+          <p>
+            Megumi Kato is the primary heroine of the popular anime and light novel series, "Saekano: How to Raise a Boring Girlfriend" (Saenai Heroine no Sodatekata). Initially portrayed as an 'ordinary' high school student, Megumi possesses a remarkably calm and often unnoticed presence. This very characteristic, however, becomes the central inspiration for Tomoya Aki, the protagonist, who aims to develop her into the main heroine of his visual novel game.
+          </p>
+          <p>
+            Despite her seemingly plain demeanor, Megumi is observant, surprisingly insightful, and possesses a dry wit that often catches others off guard. She is not prone to dramatic emotional displays, which contrasts sharply with the other heroines in the series. Her development throughout the story showcases her growing confidence and her subtle but significant impact on those around her. She learns to express herself more, becoming an indispensable part of the Blessing Software game development circle. Her ability to remain grounded and offer practical perspectives makes her a unique and deeply cherished character by fans for her realistic and relatable portrayal.
+          </p>
+          <h4>Character Details:</h4>
+          <ul>
+            <li><strong>Full Name:</strong> Megumi Kato (加藤 恵)</li>
+            <li><strong>Birthday:</strong> September 23</li>
+            <li><strong>Zodiac Sign:</strong> Libra</li>
+            <li><strong>Height:</strong> 160 cm (5'3")</li>
+            <li><strong>Weight:</strong> Secret</li>
+            <li><strong>Blood Type:</strong> O</li>
+            <li><strong>School:</strong> Toyogasaki Academy</li>
+            <li><strong>Class:</strong> 2-B (initially), later 3-A</li>
+            <li><strong>Hobbies:</strong> Playing video games (though she doesn't show it much), observing people.</li>
+            <li><strong>Signature Trait:</strong> Her ability to be 'stealthy' or unnoticeable, often referred to as her 'Stealth Mode'.</li>
+            <li><strong>Voice Actor (Japanese):</strong> Kiyono Yasuno (安野希世乃)</li>
+            <li><strong>Voice Actor (English):</strong> Katelyn Gault</li>
+          </ul>
+          <h4>Key Aspects:</h4>
+          <ul>
+              <li><strong>The "Boring" Heroine:</strong> Her initial label, which she gradually and charmingly subverts.</li>
+              <li><strong>Emotional Anchor:</strong> Often acts as the calm center in the chaotic group dynamics.</li>
+              <li><strong>Character Growth:</strong> Shows significant personal development, becoming more assertive and emotionally expressive.</li>
+              <li><strong>Relationship with Tomoya:</strong> Her evolving bond with Tomoya is a central theme, moving from a classmate to a muse, and then to something more profound.</li>
+          </ul>
+        </main>
+        
         <div id="quotes" className="megumi-quotes">
           <h3>Wisdom Corner</h3>
           <div className="quote-card" ref={quoteRef}>
@@ -136,6 +138,7 @@ const galleryImages = [
             </button>
           </div>
         </div>
+        
         <div id="gallery" className="megumi-gallery">
           <h3>Gallery</h3>
           <div className="gallery-grid">
@@ -144,8 +147,7 @@ const galleryImages = [
             ))}
           </div>
         </div>
-      </main>
-    </div>
+      </div>
     </>
   )
 }
