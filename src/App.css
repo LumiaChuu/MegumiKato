@@ -426,3 +426,74 @@ body {
     height: 140px;
   }
 }
+
+/* Music Player Popup Styles */
+.music-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.music-popup {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 350px;
+  width: 90%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  animation: popup-fade-in 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes popup-fade-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.music-popup h3 {
+  margin-top: 0;
+  color: #E91E63;
+  font-size: 1.6rem;
+}
+
+.music-popup p {
+  margin-bottom: 1.5rem;
+  color: #4A4A4A;
+  font-size: 1rem;
+}
+
+.music-popup-buttons button {
+  background-color: #E91E63;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.music-popup-buttons button:hover {
+  background-color: #D81B60;
+  transform: translateY(-2px);
+}
+
+.music-popup-buttons button:last-child {
+  background-color: #ccc;
+  color: #333;
+}
+
+.music-popup-buttons button:last-child:hover {
+  background-color: #b3b3b3;
+}
