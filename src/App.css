@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Pacifico&display=swap');
+
+/* Navbar Styles */
+.megumi-navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.8rem 2rem;
+  box-shadow: 0 2px 15px rgba(100, 100, 150, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+
+.nav-logo a {
+  font-family: 'Pacifico', cursive; /* Cute handwritten font for logo */
+  font-size: 1.8rem;
+  color: #E91E63; /* Deep pink from our palette */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-logo a:hover {
+  color: #03A9F4; /* Blue on hover */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 1.8rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #4A4A4A; /* Dark grey for links */
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0.2rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #E91E63;
+  transition: width 0.3s ease-out;
+}
+
+.nav-links a:hover {
+  color: #E91E63;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 60px; /* Adjust for potentially smaller navbar on mobile */
+  }
+
+  .megumi-navbar {
+    padding: 0.8rem 1rem;
+  }
+  .nav-logo a {
+    font-size: 1.5rem;
+  }
+  .nav-links li {
+    margin-left: 1rem;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ensure body padding doesn't get hidden by sticky navbar if #root is not full width */
+#root {
+  padding-top: 0; /* Reset if it was set before */
+}
+
+/* General body adjustments for sticky nav */
+html {
+  scroll-behavior: smooth; /* Already handled by JS, but good fallback */
+  scroll-padding-top: 70px; /* Adjust this value based on your navbar's height */
+}
+
+body {
+  background: linear-gradient(135deg, #f8cdda 0%, #d6f5fd 100%); /* Softer pink and blue gradient */
+  min-height: 100vh;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color: #4A4A4A; /* Darker grey for better readability */
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* padding: 2rem; Removed to allow navbar to span full width before container constraints */
+  text-align: center;
+}
+
+.megumi-container {
+  max-width: 700px; /* Slightly wider for better content flow */
+  margin: 1.5rem auto 3rem auto; /* Adjusted top margin to account for navbar height */
+  background: rgba(255, 255, 255, 0.6); /* Increased opacity for better readability */
+  border-radius: 25px; /* Softer corners */
+  box-shadow: 0 12px 45px 0 rgba(100, 100, 150, 0.15); /* Softer, more diffused shadow */
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  backdrop-filter: blur(15px); /* Increased blur for a more pronounced glass effect */
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.35); /* Thinner, more subtle border */
+  transition: background 0.6s, box-shadow 0.4s;
+  animation: glass-fade-in 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes glass-fade-in {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.megumi-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.7rem;
+}
+
+.megumi-img {
+  width: 180px; /* Slightly larger image */
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 6px 25px rgba(255, 105, 180, 0.3), 0 3px 15px rgba(0, 191, 255, 0.2); /* Pink and blue glow */
+  margin-bottom: 1.5rem;
+  background: #fff;
+  border: 6px solid #fff; /* White border for a cleaner look */
+  outline: 3px solid #ff85c0; /* Outer pink accent */
+  transition: box-shadow 0.4s, transform 0.4s, outline-color 0.4s;
+  filter: saturate(1.05);
+}
+.megumi-img:hover {
+  box-shadow: 0 10px 35px rgba(0, 191, 255, 0.35), 0 5px 25px rgba(255, 105, 180, 0.25); /* Swapped glow on hover */
+  outline-color: #67d8ef; /* Blue accent on hover */
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.megumi-header h1 {
+  margin: 0.5rem 0 0.3rem 0;
+  font-size: 2.8rem; /* Larger title */
+  color: #E91E63; /* Deeper pink */
+  text-shadow: 1px 1px 0 #fff, 2px 2px 8px rgba(240, 173, 200, 0.7); /* Softer shadow */
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.megumi-header h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem; /* Slightly larger subtitle */
+  color: #03A9F4; /* Brighter blue */
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 0 #fff, 1px 1px 6px rgba(173, 216, 230, 0.8);
+}
+
+.dev-credit {
+  font-size: 0.95rem; /* Slightly smaller */
+  color: #888; /* Darker grey for subtlety */
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.megumi-bio {
+  background: rgba(255,255,255,0.88); /* More opaque for readability */
+  border-radius: 18px;
+  padding: 2rem 1.8rem;
+  box-shadow: 0 5px 20px rgba(150, 150, 200, 0.12);
+  text-align: left;
+  border-left: 8px solid #ff85c0; /* Pink accent border */
+  transition: border-color 0.4s, background 0.4s;
+  margin-bottom: 2rem;
+}
+.megumi-bio:hover {
+  border-left-color: #67d8ef; /* Blue accent on hover */
+}
+.megumi-bio h3, .megumi-gallery h3, .megumi-quotes h3 {
+  color: #E91E63; /* Consistent deep pink for section titles */
+  margin-bottom: 1rem;
+  font-size: 1.5rem; /* Larger section titles */
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0a8c8; /* Light pink underline */
+  display: inline-block; /* To make border-bottom fit content */
+  text-shadow: 1px 1px 0 #fff;
+}
+.megumi-bio ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+.megumi-bio li {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  color: #03A9F4; /* Brighter blue for list items */
+  font-weight: 500; /* Slightly less bold */
+}
+.megumi-bio li strong {
+  color: #D81B60; /* Darker pink for strong tags */
+}
+
+.megumi-quotes {
+  margin-top: 3rem; /* Increased margin */
+  padding: 2rem 1.5rem; /* Adjusted padding */
+  background: rgba(255, 255, 255, 0.75); /* Slightly more transparent */
+  border-radius: 20px; /* More rounded */
+  box-shadow: 0 8px 30px rgba(100, 120, 180, 0.12);
+  border-top: 6px solid #ff85c0; /* Pink accent, was light blue */
+  transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+  text-align: center; /* Center align section content */
+}
+
+.megumi-quotes:hover {
+  background: rgba(250, 250, 255, 0.85);
+  border-top-color: #67d8ef; /* Blue accent on hover */
+  box-shadow: 0 10px 35px rgba(100, 120, 180, 0.18);
+}
+
+.megumi-quotes h3 {
+  color: #E91E63; /* Deep Pink */
+  margin-bottom: 1.8rem; /* Increased margin */
+  font-size: 2.1rem; /* Larger title */
+  font-weight: 700; /* Bolder */
+  letter-spacing: 0.5px;
+}
+
+/* New Quote Card Styles */
+.quote-card {
+  background: linear-gradient(145deg, #ffffff, #f8faff);
+  border-radius: 15px;
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0,0,0,0.05);
+  min-height: 120px; /* Ensure space for quote and author */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-left: 5px solid #03A9F4; /* Blue accent */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0,0,0,0.07);
+}
+
+.quote-text {
+  font-size: 1.25rem; /* Slightly larger */
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.quote-author {
+  font-size: 1rem;
+  color: #E91E63; /* Pink for author */
+  font-weight: 600;
+}
+
+/* Quote Controls */
+.quote-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center controls */
+  margin-top: 1rem;
+}
+
+.quote-btn {
+  background-color: transparent; /* Transparent background */
+  color: #E91E63; /* Pink icon/text */
+  border: 2px solid #E91E63; /* Pink border */
+  padding: 0.6rem; /* Adjusted padding for icon buttons */
+  width: 44px; /* Square buttons */
+  height: 44px;
+  font-size: 1rem;
+  border-radius: 50%; /* Circular buttons */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.8rem; /* Spacing around buttons */
+}
+
+.quote-btn svg {
+  width: 20px; /* Adjust icon size if needed */
+  height: 20px;
+}
+
+.quote-btn:hover {
+  background-color: #E91E63; /* Pink background on hover */
+  color: white; /* White icon/text on hover */
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
+}
+
+.quote-btn:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 2px 8px rgba(233, 30, 99, 0.2);
+}
+
+/* Quote Dots Indicator */
+.quote-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc; /* Inactive dot color */
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.dot.active {
+  background-color: #E91E63; /* Active dot color (Pink) */
+  transform: scale(1.3);
+}
+
+.dot:hover {
+  background-color: #ff85c0; /* Lighter pink on hover for inactive dots */
+}
+
+.megumi-gallery {
+  margin-top: 3rem;
+  padding: 2rem 1.5rem;
+  background: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(103, 216, 239, 0.25);
+  text-align: center;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 200px; /* Taller gallery images */
+  object-fit: cover;
+  border-radius: 15px; /* Softer radius for gallery images */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  cursor: pointer;
+  border: 4px solid transparent;
+}
+
+.gallery-img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.25); /* Pinkish shadow on hover */
+  border-color: #ff85c0; /* Pink border on hover */
+}
+
+@media (max-width: 700px) {
+  .megumi-container {
+    padding: 1.2rem 0.5rem;
+  }
+  .megumi-img {
+    width: 110px;
+    height: 110px;
+  }
+  .megumi-header h1 {
+    font-size: 1.6rem;
+  }
+  .megumi-header h2 {
+    font-size: 1rem;
+  }
+  .megumi-bio {
+    padding: 1.1rem 0.7rem;
+  }
+  .megumi-quotes {
+    padding: 1rem 0.5rem 1.2rem 0.5rem;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  .gallery-img {
+    height: 140px;
+  }
+}
