@@ -9,6 +9,23 @@ const quotes = [
   "If you notice me, maybe I'm not so plain after all."
 ]
 
+// Music Player Popup Component
+function MusicPlayer({ onPlay, onDontPlay }) {
+  return (
+    <div className="music-popup-overlay">
+      <div className="music-popup">
+        <h3>Putar Musik?</h3>
+        <p>"Glistening" oleh Megumi Kato (CV: Kiyono Yasuno)</p>
+        <div className="music-popup-buttons">
+          <button onClick={onPlay}>Putar</button>
+          <button onClick={onDontPlay}>Jangan Putar</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 function Navbar() {
   const scrollToSection = (event, sectionId) => {
     event.preventDefault();
@@ -42,6 +59,9 @@ function App() {
   const bioRef = useRef(null)
   const quoteRef = useRef(null)
   const [quoteIdx, setQuoteIdx] = useState(0)
+  const [showMusicPopup, setShowMusicPopup] = useState(true);
+  const audioRef = useRef(null);
+
 
   useEffect(() => {
     gsap.fromTo(
@@ -60,6 +80,20 @@ function App() {
       )
     }
   }, [quoteIdx])
+  
+  const handlePlayMusic = () => {
+    if (audioRef.current) {
+      audioRef.current.play().catch(error => {
+        console.error("Audio play failed:", error);
+      });
+    }
+    setShowMusicPopup(false);
+  };
+
+  const handleDontPlayMusic = () => {
+    setShowMusicPopup(false);
+  };
+
 
   const nextQuote = () => {
     setQuoteIdx((prev) => (prev + 1) % quotes.length)
@@ -73,6 +107,13 @@ function App() {
 
   return (
     <>
+      {showMusicPopup && (
+        <MusicPlayer
+          onPlay={handlePlayMusic}
+          onDontPlay={handleDontPlayMusic}
+        />
+      )}
+      <audio ref={audioRef} src="/music/glistening.mp3" loop />
       <Navbar />
       <div className="megumi-container">
         <header id="home" className="megumi-header">
